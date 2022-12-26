@@ -27,7 +27,7 @@ diskover:
         # directory excludes are case-sensitive
         # Examples: .* or .backup or .backup* or /dir/dirname
         # to exclude none use empty list []
-        dirs: [".*", ".snapshot", ".Snapshot", "~snapshot", "~Snapshot", ".zfs", "/mnt/*", "/data/proc*"]
+        dirs: [".*", ".snapshot", ".Snapshot", "~snapshot", "~Snapshot", ".zfs", "/mnt/*", "/data/proc*", "*/merged/proc*"]
         #dirs: []
         # files you want to exclude from crawl 
         # can include wildcards (.*, *.doc or NULLEXT for files with no extension)
