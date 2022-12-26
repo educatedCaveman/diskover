@@ -12,10 +12,10 @@ services:
       - ES_PORT=9200
     volumes:
       - /docker/docker-compose/diskover/config:/config
-      - /docker/docker-compose/diskover/data:/data
+      - /docker/docker-compose/diskover/diskover_data:/data
     ports:
       - 8888:80
-    mem_limit: 4096m
+    # mem_limit: 4096m
     restart: unless-stopped
     depends_on:
       - elasticsearch
@@ -33,14 +33,15 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - /path/to/esdata:/usr/share/elasticsearch/data
+      - /docker/docker-compose/diskover/elasticsearch_data:/usr/share/elasticsearch/data
     ports:
       - 9200:9200
-    depends_on:
-      - elasticsearch-helper
+    # depends_on:
+    #   - elasticsearch-helper
     restart: unless-stopped
 
-  elasticsearch-helper:
-    image: alpine
-    command: sh -c "sysctl -w vm.max_map_count=262144"
-    privileged: true
+  # read-only file system
+  # elasticsearch-helper:
+  #   image: alpine
+  #   command: sh -c "sysctl -w vm.max_map_count=262144"
+  #   privileged: true
