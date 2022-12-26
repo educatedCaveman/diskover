@@ -1,4 +1,8 @@
 version: '3'
+
+networks:
+  diskover:
+
 services:
 
   diskover:
@@ -19,6 +23,8 @@ services:
     restart: unless-stopped
     depends_on:
       - elasticsearch
+    networks:
+      - diskover
 
   elasticsearch:
     container_name: elasticsearch
@@ -36,9 +42,10 @@ services:
       - /docker/docker-compose/diskover/elasticsearch_data:/usr/share/elasticsearch/data
     ports:
       - 9200:9200
-    # depends_on:
-    #   - elasticsearch-helper
+      - 9300:9300
     restart: unless-stopped
+    networks:
+      - diskover
 
   # elasticsearch-helper:
   #   image: alpine
