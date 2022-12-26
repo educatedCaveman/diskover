@@ -36,11 +36,11 @@ services:
       - /docker/docker-compose/diskover/elasticsearch_data:/usr/share/elasticsearch/data
     ports:
       - 9200:9200
-    depends_on:
-      - elasticsearch-helper
+    # depends_on:
+    #   - elasticsearch-helper
     restart: unless-stopped
 
-  elasticsearch-helper:
-    image: alpine
-    command: sh -c "sysctl -w vm.max_map_count=262144"
-    privileged: true
+  # elasticsearch-helper:
+  #   image: alpine
+  #   command: sh -c "sysctl -w vm.max_map_count=262144"
+  #   privileged: true
