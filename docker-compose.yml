@@ -6,7 +6,7 @@ networks:
 services:
 
   diskover:
-    image: lscr.io/linuxserver/diskover@sha256:bc39a2b814b92440c8fba6cce36531b4c04fdf700772bedfa4ff0660150b12e9
+    image: lscr.io/linuxserver/diskover@sha256:2156372b1aa019248021395fc5b95d5092c2c0de7296a40950d1d8ff4a4790c2
     container_name: diskover
     environment:
       - PUID=1000
